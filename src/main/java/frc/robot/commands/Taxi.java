@@ -2,24 +2,22 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands.Intake;
+package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.DriveTrain;
 
-public class IntakeReverse extends CommandBase {
-  /** Creates a new IntakeReverse. */
-  
-  private Intake intake;
-  private double speed = 0;
+public class Taxi extends CommandBase {
 
+  private DriveTrain driveTrain;
+  private double speed;
 
-  public IntakeReverse(double speed, Intake intake) {
-    // Use addRequirements() here to declare subsystem dependencies.
-    
+  /** Creates a new Taxi. */
+  public Taxi(DriveTrain driveTrain, double speed) {
+    this.driveTrain = driveTrain;
     this.speed = speed;
-    this.intake = intake;
     
+    addRequirements(driveTrain);
   }
 
   // Called when the command is initially scheduled.
@@ -29,14 +27,14 @@ public class IntakeReverse extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    intake.reverseMotor(speed);
+    
+    driveTrain.arcadeDrive(speed);
+    
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-    intake.stopMotor();
-  }
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override

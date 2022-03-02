@@ -30,6 +30,12 @@ public final class Constants {
 //Controller Configuration
     public static final XboxController m_Control = new XboxController(1);
     public static final double Intake_Motor_Speed = 0.5;
+   
+//Xbox Controller buttons
+    public static final int A_BUTTON = 1;
+    public static final int X_BUTTON = 2;
+    public static final int Y_BUTTON = 3;
+    public static final int B_BUTTON = 4;
     
 
 }
